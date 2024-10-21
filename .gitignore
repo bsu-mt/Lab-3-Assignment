@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Lixin's ignore
+/Lixin_Tu/AR_Vuforia_Project/Packages/
+/Lixin_Tu/AR_Vuforia_Project/Library/
