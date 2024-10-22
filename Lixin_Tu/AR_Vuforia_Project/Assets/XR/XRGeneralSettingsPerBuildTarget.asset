@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c3631f5e58749a59194e0cf6baf6d5, type: 3}
   m_Name: Android Providers
   m_EditorClassIdentifier: 
+  m_InitializationComplete: 0
   m_RequiresSettingsUpdate: 0
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
   m_Loaders: []
+  <activeLoader>k__BackingField: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,7 +47,10 @@ MonoBehaviour:
   m_Name: Standalone Settings
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: 7999088425442152007}
-  m_InitManagerOnStart: 1
+  m_InitManagerOnStart: 0
+  m_XRManager: {fileID: 0}
+  m_ProviderIntialized: 0
+  m_ProviderStarted: 0
 --- !u!114 &7999088425442152007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,10 +63,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c3631f5e58749a59194e0cf6baf6d5, type: 3}
   m_Name: Standalone Providers
   m_EditorClassIdentifier: 
+  m_InitializationComplete: 0
   m_RequiresSettingsUpdate: 0
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
   m_Loaders: []
+  <activeLoader>k__BackingField: {fileID: 0}
 --- !u!114 &8163365354231426019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,4 +82,7 @@ MonoBehaviour:
   m_Name: Android Settings
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: -4439653647993150479}
-  m_InitManagerOnStart: 1
+  m_InitManagerOnStart: 0
+  m_XRManager: {fileID: 0}
+  m_ProviderIntialized: 0
+  m_ProviderStarted: 0
