@@ -3,82 +3,89 @@ using UnityEngine;
 public class SheepClickHandler : MonoBehaviour
 {
     private AudioSource sheepAudioSource;
-    //private Rigidbody sheepRigidbody;  // 用于物理跳跃
-
-    //public float jumpForce = 5f;  // 跳跃的力度，可以在 Inspector 中调整
+    public AudioClip sheepBleatingClip;  // Assign in the inspector for "sheep-bleating"
+    public AudioClip complaintClip;  // Assign in the inspector for "complaint"
+    private int clickCount = 0;  // To keep track of clicks
+    private bool isMoving = false;  // To control movement
+    public float movespeed; // To control sheep running speed
 
     void Start()
     {
-        // 获取 AudioSource 组件
+        // Get the AudioSource component
         sheepAudioSource = GetComponent<AudioSource>();
 
         if (sheepAudioSource != null)
         {
-            Debug.Log("AudioSource 组件已成功获取。");
+            Debug.Log("AudioSource component successfully retrieved.");
         }
         else
         {
-            Debug.LogError("AudioSource 组件未找到！");
+            Debug.LogError("AudioSource component not found!");
         }
-
-        //// 获取 Rigidbody 组件，用于实现跳跃
-        //sheepRigidbody = GetComponent<Rigidbody>();
-
-        //if (sheepRigidbody != null)
-        //{
-        //    Debug.Log("Rigidbody 组件已成功获取。");
-        //}
-        //else
-        //{
-        //    Debug.LogError("Rigidbody 组件未找到！你可能需要为羊添加一个 Rigidbody 组件。");
-        //}
     }
 
     void Update()
     {
-        // 检测点击事件
-        if (Input.GetMouseButtonDown(0))  // 0 表示鼠标左键或触摸屏幕
+        // Check for click event
+        if (Input.GetMouseButtonDown(0))  // 0 indicates left mouse button or touchscreen
         {
-            Debug.Log("检测到点击事件。");
+            Debug.Log("Click detected.");
 
-            // 创建从摄像机发出的射线
+            // Create a ray from the camera to the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            // 发射射线并检测碰撞
+            // Shoot the ray and detect collision
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("射线碰撞到了: " + hit.collider.gameObject.name);
+                Debug.Log("Ray hit: " + hit.collider.gameObject.name);
 
-                // 检查点击到的是否是羊
+                // Check if the object clicked is the sheep
                 if (hit.collider != null && hit.collider.gameObject == this.gameObject)
                 {
-                    Debug.Log("点击到了羊。");
+                    Debug.Log("Sheep clicked.");
 
-                    // 播放羊叫声
-                    if (sheepAudioSource != null)
+                    clickCount++;  // Increment click count
+
+                    if (clickCount == 1)
                     {
-                        sheepAudioSource.Play();
-                        Debug.Log("羊叫声正在播放。");
+                        // Play the sheep-bleating sound
+                        if (sheepAudioSource != null && sheepBleatingClip != null)
+                        {
+                            sheepAudioSource.clip = sheepBleatingClip;
+                            sheepAudioSource.Play();
+                            Debug.Log("Sheep bleating sound playing.");
+                        }
                     }
+                    else if (clickCount == 2)
+                    {
+                        // Play the complaint sound
+                        if (sheepAudioSource != null && complaintClip != null)
+                        {
+                            sheepAudioSource.clip = complaintClip;
+                            sheepAudioSource.Play();
+                            Debug.Log("Complaint sound playing.");
+                        }
 
-                    //// 让羊跳起来
-                    //if (sheepRigidbody != null)
-                    //{
-                    //    // 添加向上的跳跃力
-                    //    sheepRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                    //    Debug.Log("羊跳起来了！");
-                    //}
+                        // Start moving the sheep forward indefinitely
+                        isMoving = true;
+                    }
                 }
                 else
                 {
-                    Debug.Log("点击的不是羊。");
+                    Debug.Log("Object clicked is not the sheep.");
                 }
             }
             else
             {
-                Debug.Log("射线没有击中任何物体。");
+                Debug.Log("Ray hit nothing.");
             }
+        }
+
+        // Move the sheep forward indefinitely if the flag is set
+        if (isMoving)
+        {
+            transform.Translate(Vector3.forward * movespeed * Time.deltaTime);
         }
     }
 }

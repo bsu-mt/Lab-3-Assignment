@@ -494,7 +494,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6fed74af88fe406428f53a94701ffee2, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -613,6 +613,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b2ebd8122e69a4898622b401c9acab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sheepBleatingClip: {fileID: 8300000, guid: 6fed74af88fe406428f53a94701ffee2, type: 3}
+  complaintClip: {fileID: 8300000, guid: 26c05a59c1887f947a0f14622ff4796f, type: 3}
+  movespeed: 0.1
 --- !u!1001 &1655806960
 PrefabInstance:
   m_ObjectHideFlags: 0
