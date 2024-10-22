@@ -4,7 +4,7 @@ public class SheepClickHandler : MonoBehaviour
 {
     private AudioSource sheepAudioSource;
     public AudioClip sheepBleatingClip;  // Assign in the inspector for "sheep-bleating"
-    public AudioClip complaintClip;  // Assign in the inspector for "complaint"
+    public AudioClip sheepAnswerClip;  // Assign in the inspector for "sheep-answer"
     private int clickCount = 0;  // To keep track of clicks
     private bool isMoving = false;  // To control movement
     public float movespeed; // To control sheep running speed
@@ -59,12 +59,13 @@ public class SheepClickHandler : MonoBehaviour
                     }
                     else if (clickCount == 2)
                     {
-                        // Play the complaint sound
-                        if (sheepAudioSource != null && complaintClip != null)
+                        // Play the answer sound
+                        if (sheepAudioSource != null && sheepAnswerClip != null)
                         {
-                            sheepAudioSource.clip = complaintClip;
+                            sheepAudioSource.clip = sheepAnswerClip;
+                            sheepAudioSource.volume = 1.5f;
                             sheepAudioSource.Play();
-                            Debug.Log("Complaint sound playing.");
+                            Debug.Log("Answer sound playing.");
                         }
 
                         // Start moving the sheep forward indefinitely

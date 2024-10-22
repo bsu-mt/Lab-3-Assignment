@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sheepBleatingClip: {fileID: 8300000, guid: 6fed74af88fe406428f53a94701ffee2, type: 3}
-  complaintClip: {fileID: 8300000, guid: 26c05a59c1887f947a0f14622ff4796f, type: 3}
+  sheepAnswerClip: {fileID: 8300000, guid: 02ee1950282ae8f40806f39dedbe6955, type: 3}
   movespeed: 0.1
 --- !u!1001 &1655806960
 PrefabInstance:
@@ -646,7 +646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8185963723970810568, guid: c36cdfacfaab1584c887c605bc8e7b2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0189
+      value: -0.0472
       objectReference: {fileID: 0}
     - target: {fileID: 8185963723970810568, guid: c36cdfacfaab1584c887c605bc8e7b2f, type: 3}
       propertyPath: m_LocalRotation.w
