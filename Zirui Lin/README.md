@@ -47,5 +47,3 @@ On the fifth click, all behaviors and states of the sheep are reset:
 - **Rotation and scaling**: implemented using `transform.Rotate()` in `Update()` and the concurrent control `transform.localScale`.
 - **Audio playback**: Use `AudioSource.PlayOneShot()` to play audio.
 - **FX display**: uses the `ParticleSystem` particle system to display the fireworks effect.
-
-Translated with DeepL.com (free version)
